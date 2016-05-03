@@ -7,13 +7,17 @@ import view.*;
  * @author Edward
  */
 public class Flat {   
-       
-    public double value;
-    public double metr;
-    public boolean orItsMdm;
-    public double mediumprice;
+    
     public static double mdmMetr = 5247.00;
-   
+
+    private final double value;
+    private final double metr;
+    private boolean orItsMdm;
+    private double mediumprice;
+    
+    
+    
+     
     Scanner in = new Scanner(System.in);
 
 public Flat () {
@@ -26,8 +30,7 @@ public Flat () {
     }
 
     public Flat(double value, double metr) {
-        
-        
+  
         this.value = value;
         this.metr = metr;
         
@@ -48,14 +51,15 @@ public Flat () {
     }
     
      public void showDifference () {
-        System.out.println("Разница между МДМ м2 " + getDifference());
+     System.out.println("Разница между МДМ м2 " + getDifference());
     }
      
-  
-    public double getValue () {
+     public double getValue () {
     
     return value;
     }
+  
+   
   
     
 }

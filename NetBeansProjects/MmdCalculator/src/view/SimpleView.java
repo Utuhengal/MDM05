@@ -1,7 +1,5 @@
 package view;
-import model.Flat;
-import mmdcalculator.*;
-import controller.*;
+
 /**
  *
  * @author Edward
