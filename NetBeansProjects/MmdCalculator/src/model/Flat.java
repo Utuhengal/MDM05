@@ -8,19 +8,18 @@ import view.*;
  */
 public class Flat {   
     
+    //max price of 1 m2 for MDM-program
     public static double mdmMetr = 5247.00;
 
     private final double value;
     private final double metr;
     private boolean orItsMdm;
-    private double mediumprice;
+    private double mediumprice;  
     
     
-    
-     
     Scanner in = new Scanner(System.in);
 
-public Flat () {
+    public Flat () {
     
     SimpleView.typePrice();    
     this.value = in.nextDouble();
@@ -43,7 +42,7 @@ public Flat () {
     }
     
     public void showMediumprice() {
-        System.out.println("Средняя цена за метр квадратный "+ getMediumPrice());
+        System.out.println("Average price of the 1 m2: "+ getMediumPrice());
     }
     
     public double getDifference () {
@@ -51,7 +50,7 @@ public Flat () {
     }
     
      public void showDifference () {
-     System.out.println("Разница между МДМ м2 " + getDifference());
+     System.out.println("Difference between current price of 1 m2 and max price of 1 m2 MDM: " + getDifference());
     }
      
      public double getValue () {

@@ -17,7 +17,7 @@ public class FromTxt {
    
 public void readTxt() throws IOException, FileNotFoundException {
     
-    System.out.println("Укажите путь к файлу");
+    System.out.println("Provide file directory");
     Scanner in = new Scanner (System.in);     
 
          Scanner txt = new Scanner(System.in);
@@ -57,7 +57,6 @@ public void readTxt() throws IOException, FileNotFoundException {
          dSizeFromTxt = Double.parseDouble(txtSize);                   
    
 }
-
             }
          
             }

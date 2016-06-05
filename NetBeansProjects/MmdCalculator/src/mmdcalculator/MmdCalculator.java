@@ -4,10 +4,12 @@ import model.*;
 import view.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  *
  * @author Edward
+ * 
  */
 public class MmdCalculator {
 
@@ -15,6 +17,8 @@ public class MmdCalculator {
 public static void main(String[] args) throws FileNotFoundException, IOException  {  
     
      SimpleView.showOption();
+     
+     try {
      Scanner in = new Scanner (System.in);       
      
      int press = in.nextInt(); 
@@ -22,7 +26,8 @@ public static void main(String[] args) throws FileNotFoundException, IOException
      switch (press) {
      
         case 1:
-              
+             //values from keybord
+            
             Flat fromKeybord = new Flat();                 
                 
                 fromKeybord.getValue();
@@ -37,15 +42,22 @@ public static void main(String[] args) throws FileNotFoundException, IOException
             
         {
         SimpleView.isNotEligible();
-        }              
-       break;       
+        }       
+        
+       break;    
+       
         
             case 2:                
-                
+                //values from txt file
                 FromTxt uie = new FromTxt();
                 try {
                 uie.readTxt();
-                }catch (FileNotFoundException e) {System.out.println("smth wrong");}
+                }catch (FileNotFoundException e) {System.out.println("File was not found");
+                MmdCalculator.main(args);
+
+                return;
+               
+                }
                 
                 double flprice = uie.getDPriceFromTxt();
                 double flsize = uie.getDSizeFromTxt();
@@ -65,9 +77,9 @@ public static void main(String[] args) throws FileNotFoundException, IOException
         {
         SimpleView.isNotEligible();
         }          
-     
+     break;
             case 3 :
-       
+       //values from URL (otodom.pl)
                 FromUrl fromUrl = new FromUrl();
                 fromUrl.readUrl();
                 
@@ -90,7 +102,16 @@ public static void main(String[] args) throws FileNotFoundException, IOException
         {
         SimpleView.isNotEligible();
         } 
+        break;
+           
+        default:
+            System.out.println("Wrong number");
+            MmdCalculator.main(args);
      }
+     } catch (InputMismatchException |IOException |IllegalArgumentException e) {System.out.println("Something is going wrong");
+     MmdCalculator.main(args);
+   
 }
 
+}
 }
